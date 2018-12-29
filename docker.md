@@ -1,10 +1,8 @@
 # Docker Hints and Techniques
 
----
-
 ## Contents
 
-- How to configure an mssql-server container
+- [How to configure an mssql-server container](#how-to-configure-an-mssql-server-container)
 
 ---
 
