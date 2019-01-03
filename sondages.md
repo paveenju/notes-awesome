@@ -6,16 +6,12 @@ Les sondages suivantes me permettent les outils de décision pour ma vie.
 
 ## Sondage des Mutuelles Santés (MàJ le 2 janvier 2019)
 
-| No. | Mutuelle      | Prix Mensuel | Prix Annuel |
-|-----|---------------|--------------|-------------|
-| 1   | [LMDE][1]     |              |             |
-| 2   | [MAAF][2]     |              |             |
-| 3   | [MACIF][3]    |              |             |
-| 4   | [MATMUT][4]   |              |             |
-| 5   | [Vittavi][5]  |              |             |
+| No. | Mutuelle      | Formule      | Prix Mensuel | Prix Annuel |
+|-----|---------------|--------------|--------------|-------------|
+| 1   | [LMDE][1]     | Essentielle  | 24,35        | 292,20      |
+| 2   | [MATMUT][2]   | Evolution 1  | 33,25        | 399,00      |
+| 3   | [Vittavi][3]  | Confortable  | 18,70        | 224,40      |
 
 [1]: http://www.lmde.fr
-[2]: http://www.maaf.fr
-[3]: http://www.macif.fr
-[4]: http://www.matmut.fr
-[5]: http://www.vittavi.fr
+[2]: http://www.matmut.fr
+[3]: http://www.vittavi.fr
