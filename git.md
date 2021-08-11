@@ -5,7 +5,7 @@
 - [A First Git Workspace](#a-first-git-workspace)
 - [Split a subfolder out into a new repository](#split-a-subfolder-out-into-a-new-repository)
 - [Create a new local branch and push to remote repository](#create-a-new-local-branch-and-push-to-remote-repository)
-
+- [Move files from one repository to another, preserving git history](#move-files-from-one-repository-to-another)
 ---
 
 ## A First Git Workspace
@@ -56,4 +56,34 @@ $ git branch NEW-BRANCH
 $ git checkout NEW-BRANCH
 
 $ git push -u origin NEW-BRANCH
+```
+
+## Move files from one repository to another, preserving git history
+
+Moving the files with history to a different repository requires the following steps:
+
+```console
+$ git clone --branch <branch> --origin origin --progress -v <git repository A url>
+$ cd <git repository A directory>
+
+$ git remote rm origin
+
+$ git filter-branch --prune-empty --subdirectory-filter <directory> -- --all
+
+$ mkdir <base directory>
+$ mv * <base directory>
+
+$ git add .
+$ git commit
+
+$ git clone <git repository B url>
+$ cd <git repository B directory>
+
+$ git remote add <branch-name> <git repository A directory>
+
+$ git pull <branch-name> master --allow-unrelated-histories
+
+$ git remote rm <branch-name>
+
+$ git push
 ```
