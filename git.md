@@ -3,6 +3,7 @@
 ## Contents
 
 - [A First Git Workspace](#a-first-git-workspace)
+- [Update a feature branch from master in Git](#)
 - [Split a subfolder out into a new repository](#split-a-subfolder-out-into-a-new-repository)
 - [Create a new local branch and push to remote repository](#create-a-new-local-branch-and-push-to-remote-repository)
 - [Move files from one repository to another, preserving git history](#move-files-from-one-repository-to-another)
@@ -29,6 +30,26 @@ $ git pull
 
 $ git pull --allow-unrelated-histories
 ```
+## Update a feature branch from master in Git
+```console
+To merge
+$ git checkout master
+$ git pull
+$ git checkout target_feature_branch
+$ git merge master
+
+To rebase (alternative but recommend)
+// if no conflict
+$ git pull --rebase origin target_feature_branch
+$ git push origin
+
+// if conflicts were found and have been fixed
+$ git add .
+$ git rebase --continue 
+$ git push -f
+```
+
+
 ## Split a subfolder out into a new repository
 
 This is highly recommended to work on a fresh clone.
