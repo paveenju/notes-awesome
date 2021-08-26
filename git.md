@@ -32,23 +32,20 @@ $ git pull --allow-unrelated-histories
 ```
 ## Update a feature branch from master in Git
 ```console
-To merge
+$ git pull
 $ git checkout master
 $ git pull
-$ git checkout target_feature_branch
-$ git merge master
-
-To rebase (alternative but recommend)
-// if no conflict
-$ git pull --rebase origin target_feature_branch
+$ git checkout dev
+$ git rebase origin/master
+// if there are some conflicts from old histories just cancel conflictsskip
+$ git rebase --skip // until applying the last revision
+$ git rebase --continue // until no rebase in progress
+$ git pull
+$ git add . // if there are some conflicts
+$ git commit -m "Merged from master to dev"
+$ git pull
 $ git push origin
-
-// if conflicts were found and have been fixed
-$ git add .
-$ git rebase --continue 
-$ git push -f
 ```
-
 
 ## Split a subfolder out into a new repository
 
