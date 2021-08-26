@@ -24,6 +24,15 @@ $ git pull --allow-unrelated-histories
 ```
 
 ## Update a feature branch from master in Git
+Merge method (Multiple developers in a branch):
+```console
+$ git pull
+$ git checkout master
+$ git pull
+$ git checkout dev
+$ git merge origin/master
+```
+Rebase method (One developer one branch):
 ```console
 $ git pull
 $ git checkout master
