@@ -1,11 +1,11 @@
-# Note-taking Worksheets
+# Note-taking Worksheet
 
-These note-takings provide:
+This worksheet provides:
 
 - Tips and tricks for usage of common tools in our day life.
 - Brief notes of my passed seminars and conferences.
 
-I'm very welcome you all to contribute my note-takings as well as to add new tricks in my workspace.
+I'm very welcome you all to contribute my worksheet in my workspace.
 
 ---
 
