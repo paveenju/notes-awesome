@@ -6,7 +6,7 @@
 - [Update a feature branch from master in Git](#git-02)
 - [Split a subfolder out into a new repository](#git-03)
 - [Create a new local branch and push to its remote repository](#git-04)
-- [Move files from one repository to another, preserving git history](#git-05)
+- [Move files from one repository to another while preserving git history](#git-05)
 - [Clone a git repository with a branch name](#git-06)
 - [Remove files or folders from a remote repository but keep them locally](#git-07)
 ---
@@ -70,7 +70,7 @@ git checkout NEW-BRANCH
 git push -u origin NEW-BRANCH
 ```
 
-## <a name="git-05"></a> Move files from one repository to another, preserving git history
+## <a name="git-05"></a> Move files from one repository to another while preserving git history
 
 Moving the files with history to a different repository requires the following steps:
 
