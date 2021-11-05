@@ -2,94 +2,124 @@
 
 ## Contents
 
-- [A First Git Workspace](#a-first-git-workspace)
-- [Update a feature branch from master in Git](#)
-- [Split a subfolder out into a new repository](#split-a-subfolder-out-into-a-new-repository)
-- [Create a new local branch and push to remote repository](#create-a-new-local-branch-and-push-to-remote-repository)
-- [Move files from one repository to another, preserving git history](#move-files-from-one-repository-to-another)
+- [The first Git workspace](#git-01)
+- [Update a feature branch from master in Git](#git-02)
+- [Split a subfolder out into a new repository](#git-03)
+- [Create a new local branch and push to its remote repository](#git-04)
+- [Move files from one repository to another, preserving git history](#git-05)
+- [Clone a git repository with a branch name](#git-06)
+- [Remove files or folders from a remote repository but keep them locally](#git-07)
 ---
 
-## A First Git Workspace
+## <a name="git-01"></a> The first Git workspace
 
 ```console
-$ git status
-$ git add -A
-$ git commit -m "Hello"
-$ git remote add origin https://github.com/paveenju/hello-world.git
-$ git remote -v
-$ git branch --set-upstream-to=origin/master master
-$ git push -u origin master
-$ git pull
-$ git pull --allow-unrelated-histories
+git status
+git add -A
+git commit -m "Hello"
+git remote add origin https://github.com/paveenju/hello-world.git
+git remote -v
+git branch --set-upstream-to=origin/master master
+git push -u origin master
+git pull
+git pull --allow-unrelated-histories
 ```
 
-## Update a feature branch from master in Git
+## <a name="git-02"></a> Update a feature branch from master in Git
 Merge method (Multiple developers in a branch):
 ```console
-$ git pull
-$ git checkout master
-$ git pull
-$ git checkout dev
-$ git merge origin/master
+git pull
+git checkout master
+git pull
+git checkout dev
+git merge origin/master
 ```
 Rebase method (One developer one branch):
 ```console
-$ git pull
-$ git checkout master
-$ git pull
-$ git checkout dev
-$ git rebase origin/master
-// if there are some conflicts from old histories just cancel conflictsskip
-$ git rebase --skip // until applying the last revision
-$ git rebase --continue // until no rebase in progress
-$ git pull
-$ git add . // if there are some conflicts
-$ git commit -m "Merged from master to dev"
-$ git pull
-$ git push origin
+git pull
+git checkout master
+git pull
+git checkout dev
+git rebase origin/master
+# if there are some conflicts from old histories just cancel conflictsskip
+git rebase --skip # until applying the last revision
+git rebase --continue # until no rebase in progress
+git pull
+git add . # if there are some conflicts
+git commit -m "Merged from master to dev"
+git pull
+git push origin
 ```
 
-## Split a subfolder out into a new repository
+## <a name="git-03"></a> Split a subfolder out into a new repository
 This is highly recommended to work on a fresh clone.
 ```console
-$ git clone https://github.com/USERNAME/REPOSITORY-NAME
-$ cd REPOSITORY-NAME
-$ git filter-branch --prune-empty --subdirectory-filter FOLDER-NAME BRANCH-NAME
-$ git remote set-url origin https://github.com/USERNAME/NEW-REPOSITORY-NAME.git
-$ git push -u origin BRANCH-NAME
+git clone https://github.com/USERNAME/REPOSITORY-NAME
+cd REPOSITORY-NAME
+git filter-branch --prune-empty --subdirectory-filter FOLDER-NAME BRANCH-NAME
+git remote set-url origin https://github.com/USERNAME/NEW-REPOSITORY-NAME.git
+git push -u origin BRANCH-NAME
 ```
 Visit [GitHub Docs](https://docs.github.com/en/get-started/using-git/splitting-a-subfolder-out-into-a-new-repository) for more info.
 
-## Create a new local branch and push to remote repository
+## <a name="git-04"></a> Create a new local branch and push to its remote repository
 Git's branching functionality lets you create new branches of a project to test ideas, isolate new features, or experiment without impacting the main project.
 ```console
-$ git branch NEW-BRANCH
-$ git checkout NEW-BRANCH
-$ git push -u origin NEW-BRANCH
+git branch NEW-BRANCH
+git checkout NEW-BRANCH
+git push -u origin NEW-BRANCH
 ```
 
-## Move files from one repository to another, preserving git history
+## <a name="git-05"></a> Move files from one repository to another, preserving git history
 
 Moving the files with history to a different repository requires the following steps:
 
 ```console
-$ git clone --branch <branch> --origin origin --progress -v <git repository A url>
-$ cd <git repository A directory>
+git clone --branch <branch> --origin origin --progress -v <git repository A url>
+cd <git repository A directory>
 
-$ git remote rm origin
-$ git filter-branch --prune-empty --subdirectory-filter <directory> -- --all
+git remote rm origin
+git filter-branch --prune-empty --subdirectory-filter <directory> -- --all
 
-$ mkdir <base directory>
-$ mv * <base directory>
+mkdir <base directory>
+mv * <base directory>
 
-$ git add .
-$ git commit
+git add .
+git commit
 
-$ git clone <git repository B url>
-$ cd <git repository B directory>
+git clone <git repository B url>
+cd <git repository B directory>
 
-$ git remote add <branch-name> <git repository A directory>
-$ git pull <branch-name> master --allow-unrelated-histories
-$ git remote rm <branch-name>
-$ git push
+git remote add <branch-name> <git repository A directory>
+git pull <branch-name> master --allow-unrelated-histories
+git remote rm <branch-name>
+git push
+```
+
+## <a name="git-06"></a> Clone a git repository with a branch name
+
+```console
+git clone -b my-branch git@github.com:user/myproject.git
+```
+
+## <a name="git-06"></a> Fetch all branches from a remote repository
+
+```console
+git fetch origin
+git branch -a
+```
+
+## <a name="git-07"></a> Remove files or folders in a remote repository but keep them locally
+
+Step 1 - Remove files or folders remotely:
+```console
+git rm --cached Files
+git rm -r --cached Folders
+git commit -m "Removed files/folders from repository"
+git push origin master
+```
+Step 2 - Make sure to modify .gitignore with the following examples:
+```console
+foldername/
+filename
 ```
