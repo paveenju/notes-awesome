@@ -9,6 +9,7 @@
 - [Move files from one repository to another while preserving git history](#git-05)
 - [Clone a git repository with a branch name](#git-06)
 - [Remove files or folders from a remote repository but keep them locally](#git-07)
+- [Migrate a local branch to a new repository while keeping its histories](#git-08)
 ---
 
 ## <a name="git-01"></a> The first Git workspace
@@ -122,4 +123,19 @@ Step 2 - Make sure to modify .gitignore with the following examples:
 ```console
 foldername/
 filename
+```
+
+## <a name="git-08"></a> Migrate a local branch to a new repository while keeping histories
+
+Assume that we would like to copy the local branch named `dev` to a new repository as the `master` branch and prepare you local directory for the new repository. 
+
+```console
+git fetch origin
+git checkout -b dev origin/dev
+git remote add new-origin <new-repo-url>
+git push new-origin dev:master
+git remote rm origin
+git remote rename new-origin origin
+git checkout -b master origin/master
+git branch -D <local-branches-in-old-repo>
 ```
