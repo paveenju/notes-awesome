@@ -68,6 +68,7 @@ Git's branching functionality lets you create new branches of a project to test 
 ```console
 git branch NEW-BRANCH
 git checkout NEW-BRANCH
+# git checkout -b NEW-BRANCH
 git push -u origin NEW-BRANCH
 ```
 
