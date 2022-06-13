@@ -28,12 +28,22 @@ git pull --allow-unrelated-histories
 
 ## <a name="git-02"></a> Update a feature branch from master in Git
 Merge method (Multiple developers in a branch):
+Merging all files
 ```console
 git pull
 git checkout master
 git pull
 git checkout dev
 git merge origin/master
+```
+Merging some files
+```console
+git pull
+git checkout master
+git pull
+git checkout dev
+git merge --no-ff --no-commit origin/master
+git reset file1 file2 # if you do not want to merge file1 and file2
 ```
 Rebase method (One developer one branch):
 ```console
