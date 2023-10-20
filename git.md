@@ -76,10 +76,8 @@ Visit [GitHub Docs](https://docs.github.com/en/get-started/using-git/splitting-a
 ## <a name="git-04"></a> Create a new local branch and push to its remote repository
 Git's branching functionality lets you create new branches of a project to test ideas, isolate new features, or experiment without impacting the main project.
 ```console
-git branch NEW-BRANCH
-git checkout NEW-BRANCH
-# git checkout -b NEW-BRANCH
-git push -u origin NEW-BRANCH
+git checkout -b NEW-BRANCH
+git push origin NEW-BRANCH:NEW-BRANCH
 ```
 
 ## <a name="git-05"></a> Move files from one repository to another while preserving git history
