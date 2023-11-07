@@ -2,17 +2,17 @@
 
 ## Contents
 
-- [The first Git workspace](#git-01)
-- [Update a feature branch from master in Git](#git-02)
-- [Split a subfolder out into a new repository](#git-03)
-- [Create a new local branch and push to its remote repository](#git-04)
+- [The first Git workspace](#the-first-git-workspace)
+- [Update a feature branch from master](#update-a-feature-branch-from-master)
+- [Split a subfolder out into a new repository](#split-a-subfolder-out-into-a-new-repository)
+- [Create a new local branch and push to its remote repository](#create-a-new-local-branch-and-push-to-its-remote-repository)
 - [Move files from one repository to another while preserving git history](#git-05)
 - [Clone a git repository with a branch name](#git-06)
 - [Remove files or folders from a remote repository but keep them locally](#git-07)
 - [Migrate a local branch to a new repository while keeping its histories](#git-08)
 ---
 
-## <a name="git-01"></a> The first Git workspace
+## The first Git workspace
 
 ```console
 git status
@@ -26,9 +26,12 @@ git pull
 git pull --allow-unrelated-histories
 ```
 
-## <a name="git-02"></a> Update a feature branch from master in Git
+## Update a feature branch from master
+
 Merge method (Multiple developers in a branch):
+
 Merging all files
+
 ```console
 git pull
 git checkout master
@@ -37,6 +40,7 @@ git checkout dev
 git merge origin/master
 ```
 Merging some files
+
 ```console
 git pull
 git checkout master
@@ -46,6 +50,7 @@ git merge --no-ff --no-commit origin/master
 git reset file1 file2 # if you do not want to merge file1 and file2
 ```
 Rebase method (One developer one branch):
+
 ```console
 git pull
 git checkout master
@@ -62,8 +67,10 @@ git pull
 git push origin
 ```
 
-## <a name="git-03"></a> Split a subfolder out into a new repository
+## Split a subfolder out into a new repository
+
 This is highly recommended to work on a fresh clone.
+
 ```console
 git clone https://github.com/USERNAME/REPOSITORY-NAME
 cd REPOSITORY-NAME
@@ -73,8 +80,10 @@ git push -u origin BRANCH-NAME
 ```
 Visit [GitHub Docs](https://docs.github.com/en/get-started/using-git/splitting-a-subfolder-out-into-a-new-repository) for more info.
 
-## <a name="git-04"></a> Create a new local branch and push to its remote repository
+## Create a new local branch and push to its remote repository
+
 Git's branching functionality lets you create new branches of a project to test ideas, isolate new features, or experiment without impacting the main project.
+
 ```console
 git checkout -b NEW-BRANCH
 git push origin NEW-BRANCH:NEW-BRANCH
@@ -122,6 +131,7 @@ git branch -a
 ## <a name="git-07"></a> Remove files or folders in a remote repository but keep them locally
 
 Step 1 - Remove files or folders remotely:
+
 ```console
 git rm --cached Files
 git rm -r --cached Folders
@@ -129,6 +139,7 @@ git commit -m "Removed files/folders from repository"
 git push origin master
 ```
 Step 2 - Make sure to modify .gitignore with the following examples:
+
 ```console
 foldername/
 filename
