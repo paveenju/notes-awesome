@@ -6,10 +6,11 @@
 - [Update a feature branch from master](#update-a-feature-branch-from-master)
 - [Split a subfolder out into a new repository](#split-a-subfolder-out-into-a-new-repository)
 - [Create a new local branch and push to its remote repository](#create-a-new-local-branch-and-push-to-its-remote-repository)
-- [Move files from one repository to another while preserving git history](#git-05)
-- [Clone a git repository with a branch name](#git-06)
+- [Move files from one repository to another while preserving git history](#move-files-from-one-repository-to-another-while-preserving-git-history)
+- [Clone a git repository with a branch name](#clone-a-git-repository-with-a-branch-name)
 - [Remove files or folders from a remote repository but keep them locally](#git-07)
 - [Migrate a local branch to a new repository while keeping its histories](#git-08)
+- [Change commit's information of specified commits](#change-commits-information-of-specified-commits)
 ---
 
 ## The first Git workspace
@@ -89,7 +90,7 @@ git checkout -b NEW-BRANCH
 git push origin NEW-BRANCH:NEW-BRANCH
 ```
 
-## <a name="git-05"></a> Move files from one repository to another while preserving git history
+## Move files from one repository to another while preserving git history
 
 Moving the files with history to a different repository requires the following steps:
 
@@ -115,7 +116,7 @@ git remote rm <branch-name>
 git push
 ```
 
-## <a name="git-06"></a> Clone a git repository with a branch name
+## Clone a git repository with a branch name
 
 ```console
 git clone -b my-branch git@github.com:user/myproject.git
