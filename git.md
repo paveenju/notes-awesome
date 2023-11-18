@@ -159,3 +159,18 @@ git remote rename new-origin origin
 git checkout -b master origin/master
 git branch -D <local-branches-in-old-repo>
 ```
+
+## Change commit's information of specified commits
+
+Given that the commit history is `A-B-C-D-E-F` with `F` as `HEAD`, we follows these steps to change the author of `C` and `D`.
+
+1. Specify `git rebase -i B` (if you need to edit `A`, use `git rebase -i --root`)
+2. Change the lines for both `C` and `D` from `pick` to `edit`
+3. Exit the editor (for `vim`, this would be pressing `Esc` and then typing `:wq`).
+4. Once the rebase started, it would first pause at `C`
+5. You would git commit --amend --author="Author Name <email@address.com>"
+6. Then `git rebase --continue`
+7. It would pause again at `D`
+8. Then you would git commit --amend --author="Author Name <email@address.com>" again
+9. `git rebase --continue`
+10. The rebase would complete.
